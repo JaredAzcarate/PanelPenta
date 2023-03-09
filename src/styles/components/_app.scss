@@ -1,0 +1,62 @@
+@import '../settings/mixins';
+
+.App{
+    display: flex;
+}
+
+.app-navbar{
+    width: 20%;
+    max-width: 30rem;
+    min-width: 25rem;
+    transition: 0.2s ease-in-out;
+}
+
+.app-navbar_close{
+    width: 5%;
+    min-width: 10rem;
+    transition: 0.2s ease-in-out;
+}
+
+.app-panel{
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+/* Dashboard section */
+.dashboard-moviments{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.dashboard-information{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    gap: 2rem;
+}
+
+
+
+/* SetResponsive */
+
+@include mq(1700px){
+    .dashboard-moviments{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .dashboard-information{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+}
+
+@include mq(760px){
+    .dashboard-moviments{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+}

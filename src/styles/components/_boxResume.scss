@@ -1,0 +1,31 @@
+@import '../settings/mixins';
+
+.box-resume{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.box-icon{
+    width: 30%;
+    height: 8rem;
+    border-radius: 10px;
+    background: $bg-second2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-information{
+    width: 70%;
+}
+
+.box-information_tittle{
+    font-size: 14px;
+    @include animationText(toRight);
+}
+
+.box-information_number{
+    font-size: 40px;
+    font-weight: 400;
+}

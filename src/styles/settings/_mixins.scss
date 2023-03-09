@@ -1,0 +1,62 @@
+@mixin rotateScaleAnimation {
+    animation: RotateScale .5s ease-in-out;
+    @keyframes RotateScale {
+     0%{transform: rotate(90deg) scale(0);}  
+     100%{transform: rotate(0deg) scale(1);}  
+    }
+}
+
+@mixin notification {
+    animation: Notification .8s ease-in-out;
+
+    @keyframes Notification {
+        0%{
+            transform: rotate(0);
+        }
+        20%{
+            transform: rotate(40deg);
+        }
+        40%{
+            transform: rotate(-40deg);
+        }
+        60%{
+            transform: rotate(20deg);
+        }
+        80%{
+            transform: rotate(-10deg);
+        }
+        90%{
+            transform: rotate(5deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+}
+
+@mixin animationText ($direction){
+    animation: $direction .3s ease-out;
+
+    @keyframes toRight {
+        from{ opacity: 0; transform: translateX(-50px);}
+        to{ opacity: 1; transform: translateX(0px);}
+    }
+    @keyframes toLeft {
+        from{ opacity: 0; transform: translateX(50px);}
+        to{ opacity: 1; transform: translateX(0px);}
+    }
+    @keyframes toTop {
+        from{ opacity: 0; transform: translateY(50px);}
+        to{ opacity: 1; transform: translateY(0px);}
+    }
+    @keyframes toBottom {
+        from{ opacity: 0; transform: translateY(-50px);}
+        to{ opacity: 1; transform: translateY(0px);}
+    }
+}
+
+@mixin mq($size){
+    @media (max-width:$size) {
+        @content;
+    }
+}

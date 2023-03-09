@@ -1,0 +1,80 @@
+@import '../settings/mixins';
+
+
+.header{
+    padding: 4rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $bg-main;
+}
+
+.header-left h1{
+    font-weight: 500;
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.header-right_search{
+    position: relative;
+    background-color: $bg-second2;
+    padding: 1rem;
+    border-radius: 7px;
+    overflow: hidden;
+
+    &::before{
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: .1rem;
+        left: 0;
+        bottom: 0;
+        background: $color-yellow;
+        transition: .3s ease-in-out;
+    }
+}
+
+.header-right_search-responsive_hide, .header-right_search-hide{
+    display: none;
+}
+
+.header-right_search:hover::before{
+    width: 100%;
+}
+
+.header-right_search input{
+    width: 20rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: $text-color_grey;
+    font-family: $fontPrimary;
+    transition: .2s ease-in-out;
+
+    &:focus, &:active, &:hover{
+        width: 28rem;
+    }
+}
+
+.header-right_profile{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.header-right_profile-picture{
+    height: 4.5rem;
+    border-radius: 1rem;
+}
+
+@include mq($screenSM){
+
+    .header{
+        gap: 2rem;
+    }
+}

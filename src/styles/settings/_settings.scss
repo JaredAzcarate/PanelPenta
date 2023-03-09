@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+@import './mixins';
+
+
+/* UX Colors */
+
+.light{
+
+    --bg-main:#f3f3f3;
+    --bg-second:#d6d6d6;
+    --bg-second2:#ececec;
+    --white:#000000;
+
+    --text-color_black:#ffffff;
+    --text-color_grey:#757575;
+    --text-color_grey2:#b1b1b1;
+}
+
+.dark{
+
+    --bg-main:#1A1C22;
+    --bg-second:#272727;
+    --bg-second2:#282C35;
+    --white:#fff;
+
+    --text-color_black:#1A1B2F;
+    --text-color_grey:#9A9A9A;
+    --text-color_grey2:#9E9E9E;
+}
+
+
+$bg-main:var(--bg-main);
+$bg-second:var(--bg-second);
+$bg-second2:var(--bg-second2);
+$white:var(--white);
+
+$text-color_black:var(--text-color_black);
+$text-color_grey:var(--text-color_grey);
+$text-color_grey2:var(--text-color_grey2);
+
+$color-orange:#F46D22;
+$color-yellow:#FFC01E;
+$color-green:#1FCB4F;
+
+/* Media Querys */
+$screenM:1700px;
+$screenSM:760px;
+$screenS:600px;
+
+
+
+/* Fonts */
+$fontPrimary:'Poppins', sans-serif;
+
+/* General config */
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 16px;
+    background: $bg-second2;
+    overflow-x: hidden;
+}
+
+html, body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: $fontPrimary;
+    color: $white;
+    font-weight: 300;
+}
+
+h1{
+    @include animationText(toBottom)
+}
+
+h1, h2, h3, h4, a, p {
+    padding: 0;
+    margin: 0;
+}
+
+h3{
+    font-weight: 400;
+}
+.flexCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.maxWidth{
+    max-width: 4000px
+}
+
+.container{
+    margin: 2rem;
+}
+
+.box{
+    background: $bg-main;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: .2s ease-in-out;
+}
+
+.button{
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    color: $color-green;
+    background: $bg-second2;
+    transition: .2s ease-in-out;
+
+
+    &:hover{
+        transform: scale(1.1);
+        color: $bg-second2;
+        background: $color-green;
+
+        .icon{
+            @include notification;
+        }
+    }
+}
+
+/* setResponsive */
+
+@include mq($screenM){
+
+    h1{
+        font-size: 20px;
+    }
+
+    .box{
+        max-width: 100%;
+    }
+}
+
+
+@include mq($screenS){
+    .box{
+        max-width: 100%;
+        margin: 0 1rem;
+    }
+}

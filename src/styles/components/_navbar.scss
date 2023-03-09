@@ -1,0 +1,139 @@
+@import '../settings/mixins';
+
+
+.navbar{
+    position: relative;
+    padding: 3.5rem 0 0 3.5rem;
+    background-color: $bg-main;
+    height: 100vh;
+}
+
+.nav-logo{
+    margin: 2rem 0 5rem;
+    display: flex;
+}
+
+.texto-logo{
+    margin-left: 1rem;
+    font-size: 3.6rem;
+    font-weight: 500;
+    -webkit-text-stroke: 1px $white;
+    color: $white;
+    @include animationText (toRight);
+}
+
+.text-animate{
+    display: none;
+}
+
+.isotipo{
+    width: 3rem;
+    animation: RotationScale .5s ease-in-out;
+    @keyframes RotationScale {
+     0%{transform: rotate(90deg) scale(0);}  
+     100%{transform: rotate(0deg) scale(1);}  
+    }
+
+}
+
+/* .nav-menu{
+} */
+
+.nav-menu_option{
+    position: relative;
+    overflow: hidden;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    &::before{
+        content: '';
+        position: absolute;
+        right: -10px;
+        width: 1rem;
+        height: 1.9rem;
+        border-radius: 4px 0 0 4px;
+        background: $color-yellow;
+        transition: 0.3s ease-in-out;
+        
+    }
+
+    &:hover::before{
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1rem;
+        height: 1.9rem;
+        border-radius: 4px 0 0 4px;
+        background: $color-yellow;
+    }
+
+    &:hover .nav-menu_text, &:hover .nav-menu_icon{
+        color: $color-green;
+        fill: $color-green;
+        transition: 0.3s ease-in-out;
+    }
+
+    &:hover .nav-menu_icon{
+        transform: translateX(-3px);
+    }
+}
+
+.nav-menu_icon{
+    width: 3rem;
+    height: 2.5rem;
+    margin-right: 3rem;
+    fill: $text-color_grey;
+}
+
+.nav-menu_text{
+    text-decoration: none;
+    color: $text-color_grey;
+}
+
+.toggle-icon{
+    color: $text-color_grey;
+    font-size: 1.7rem;
+    position: absolute;
+    left: 10;
+    bottom: 10rem;
+    transition: .8s;
+
+    &:hover{
+        color: $color-yellow;        
+    }
+}
+
+.toggle-active{
+    transform: rotate(90deg);
+    color: $color-green; 
+}
+
+/* Navbar reduce */
+.nav-menu_text-hidden{
+    visibility: hidden;
+    text-decoration: none;
+    transition: .1s ease-in-out;
+
+}
+
+
+
+@include mq(600px){
+    .navbar{
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        background: red;
+        height: 5rem;
+        width: 100%;
+    }
+    .nav-menu_text{
+        display: none;
+    }
+    .nav-menu{
+        display: flex;
+    }
+}
